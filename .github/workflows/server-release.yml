@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - store
+      - store/**
       - .github/workflows/server-release.yml
 
 env:
