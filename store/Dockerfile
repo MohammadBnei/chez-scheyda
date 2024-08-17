@@ -1,0 +1,29 @@
+FROM node:20
+
+RUN npm install -g bun
+
+WORKDIR /app
+
+COPY ["package.json", "bun.lockb", "./"]
+
+RUN bun install
+
+COPY . .
+
+RUN bun run build:server
+
+ARG NODE_ENV
+ARG PORT
+
+ENV NODE_ENV=production
+ENV PORT=3000
+
+ARG DATABASE_TYPE
+ARG MEDUSA_ADMIN_ONBOARDING_TYPE
+ARG STORE_CORS
+ARG MEDUSA_ADMIN_ONBOARDING_NEXTJS_DIRECTORY
+ARG LOCALE
+ARG STRIPE_API_KEY
+ARG DATABASE_URL
+
+CMD ["bun", "start"]
