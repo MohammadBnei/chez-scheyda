@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medusa-shahlaa-server
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: medusa-shahlaa-server
+  template:
+    metadata:
+      labels:
+        app: medusa-shahlaa-server
+    spec:
+      containers:
+        - image: mohammaddocker/medusa-shahlaa-server
+          name: medusa-shahlaa-server
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 200m
+              memory: 200Mi
+          envFrom:
+            - secretRef:
+                name: managed-secret
