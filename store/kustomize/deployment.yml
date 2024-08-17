@@ -16,7 +16,7 @@ spec:
         app: medusa-shahlaa-server
     spec:
       containers:
-        - image: mohammaddocker/medusa-shahlaa-server
+        - image: mohammaddocker/medusa-shahlaa-server:0.0.4
           name: medusa-shahlaa-server
           ports:
             - containerPort: 3000
