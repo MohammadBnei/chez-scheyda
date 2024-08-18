@@ -18,6 +18,7 @@ spec:
       containers:
         - image: store-admin
           name: medusa-shahlaa-admin
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           resources:

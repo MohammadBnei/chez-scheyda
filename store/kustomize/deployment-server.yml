@@ -18,6 +18,7 @@ spec:
       containers:
         - image: store-server
           name: medusa-shahlaa-server
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           resources:
