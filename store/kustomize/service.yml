@@ -64,7 +64,7 @@ spec:
         - kind: Service
           name: medusa-shahlaa-admin-service
           port: 3000
-      middlewares:
-        - name: admin-rewrite-rule
+      # middlewares:
+      #   - name: admin-rewrite-rule
   tls:
     secretName: shahlaa-admin-certificate-secret
