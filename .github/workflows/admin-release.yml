@@ -56,4 +56,4 @@ jobs:
           cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           cache-to: type=inline
           target: release-admin
-          args: MEDUSA_BACKEND_URL=${{ env.MEDUSA_BACKEND_URL }}
+          args: MEDUSA_ADMIN_BACKEND_URL=${{ env.MEDUSA_BACKEND_URL }}
