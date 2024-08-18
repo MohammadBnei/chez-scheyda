@@ -4,7 +4,8 @@ kind: Kustomization
 namespace: shahlaa
 
 resources:
-  - deployment.yml
+  - deployment-server.yml
+  - deployment-admin.yml
   - secret.yml
   - service.yml
   
