@@ -45,8 +45,8 @@ kind: Middleware
 metadata:
   name: admin-rewrite-rule
 spec:
-  redirectRegex:
-    regex: ^/(.*)$
+  replacePathRegex:
+    regex: /(.*)
     replacement: /index.html
 
 ---
