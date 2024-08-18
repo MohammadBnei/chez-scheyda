@@ -44,9 +44,12 @@ ENV PORT=3000
 
 CMD ["bun", "start"]
 
-FROM lipanski/docker-static-website:latest AS release-admin
-WORKDIR /usr/src/app
+FROM nginx:alpine AS release-admin
 
-COPY --from=prerelease-admin /usr/src/app/build .
+RUN rm -rf /usr/share/nginx/html/*
 
-CMD ["/busybox-httpd", "-f", "-v", "-p", "3000"]
+COPY --from=prerelease-admin /usr/src/app/build /usr/share/nginx/html/
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
