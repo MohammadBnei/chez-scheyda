@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: medusa-shahlaa-server
+  name: medusa-shahlaa-admin
   annotations: 
     secrets.infisical.com/auto-reload: "true" 
 spec:
