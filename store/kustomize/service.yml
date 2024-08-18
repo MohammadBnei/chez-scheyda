@@ -45,7 +45,7 @@ kind: Middleware
 metadata:
   name: admin-rewrite-rule
 spec:
-  replacePathRegex:
+  redirectRegex:
     regex: ^/(.*)$
     replacement: /index.html
 
@@ -66,6 +66,5 @@ spec:
           port: 3000
       middlewares:
         - name: admin-rewrite-rule
-          namespace: shahlaa
   tls:
     secretName: shahlaa-admin-certificate-secret
