@@ -60,7 +60,6 @@ metadata:
 spec:
   entryPoints:
     - websecure
-    - web
   routes:
     - kind: Rule
       match: Host(`shahlaa-admin.bnei.dev`)
@@ -70,6 +69,7 @@ spec:
           port: 3000
       middlewares:
         - name: rewrite-rule
+          namespace: shahlaa
   tls:
     secretName: shahlaa-admin-certificate-secret
 
