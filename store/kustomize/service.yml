@@ -46,7 +46,7 @@ metadata:
   name: admin-rewrite-rule
 spec:
   replacePathRegex:
-    regex: /(.*)
+    regex: ^/(.*)$
     replacement: /index.html
 
 ---
