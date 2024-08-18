@@ -15,4 +15,4 @@ images:
     newTag: 0.0.7
   - name: store-admin
     newName: mohammaddocker/medusa-shahlaa-admin
-    newTag: 0.0.7
+    newTag: latest

@@ -19,7 +19,7 @@ spec:
         - image: store-admin
           name: medusa-shahlaa-admin
           ports:
-            - containerPort: 3000
+            - containerPort: 80
           resources:
             limits:
               cpu: 200m
