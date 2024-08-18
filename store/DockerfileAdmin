@@ -1,11 +1,8 @@
-# use the official Bun image
-# see all versions at https://hub.docker.com/r/oven/bun/tags
 FROM node:22-slim AS base
 WORKDIR /usr/src/app
 
 RUN npm install -g bun
 
-# full image because bun and node-gyp error
 FROM node:22 AS install
 
 RUN npm i -g bun
@@ -18,7 +15,6 @@ COPY . .
 
 ARG MEDUSA_ADMIN_BACKEND_URL
 
-# [optional] tests & build
 ENV NODE_ENV=production
 RUN bun run build:admin
 
