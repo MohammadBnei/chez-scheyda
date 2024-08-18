@@ -12,7 +12,6 @@ spec:
   type: ClusterIP
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -27,7 +26,6 @@ spec:
   type: ClusterIP
 
 ---
-
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -36,24 +34,22 @@ spec:
   commonName: shahlaa-admin.bnei.dev
   secretName: shahlaa-admin-certificate-secret
   dnsNames:
-      - "shahlaa-admin.bnei.dev"
+    - "shahlaa-admin.bnei.dev"
   issuerRef:
-      kind: ClusterIssuer
-      name: letsencrypt-prod
+    kind: ClusterIssuer
+    name: letsencrypt-prod
 
 ---
-
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: admin-rewrite-rule
 spec:
-  headers:
-    customResponseHeaders:
-      rewrite-target: "/index.html"
+  replacePathRegex:
+    regex: ^/(.*)$
+    replacement: /index.html
 
 ---
-
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
@@ -66,11 +62,10 @@ spec:
       match: Host(`shahlaa-admin.bnei.dev`)
       services:
         - kind: Service
-          name:  medusa-shahlaa-admin-service
+          name: medusa-shahlaa-admin-service
           port: 3000
       middlewares:
         - name: admin-rewrite-rule
           namespace: shahlaa
   tls:
     secretName: shahlaa-admin-certificate-secret
-
