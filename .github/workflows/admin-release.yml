@@ -11,7 +11,7 @@ on:
 
 env:
   IMAGE_NAME: medusa-shahlaa-admin
-  MEDUSA_BACKEND_URL: http://medusa-shahlaa-server-service.shahlaa:3000
+  MEDUSA_BACKEND_URL: https://shahlaa-server.bnei.dev
 
 jobs:
   docker:
