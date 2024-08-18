@@ -40,7 +40,6 @@ spec:
     name: letsencrypt-prod
 
 ---
-
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -53,16 +52,6 @@ spec:
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt-prod
-
----
-apiVersion: traefik.io/v1alpha1
-kind: Middleware
-metadata:
-  name: admin-rewrite-rule
-spec:
-  rewritePathRegex:
-    regex: ^/(.*)$
-    replacement: /index.html
 
 ---
 apiVersion: traefik.io/v1alpha1
@@ -79,8 +68,6 @@ spec:
         - kind: Service
           name: medusa-shahlaa-admin-service
           port: 3000
-      # middlewares:
-      #   - name: admin-rewrite-rule
   tls:
     secretName: shahlaa-admin-certificate-secret
 
