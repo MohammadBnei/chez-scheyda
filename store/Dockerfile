@@ -5,8 +5,7 @@ WORKDIR /usr/src/app
 
 RUN npm install -g bun
 
-# install dependencies into temp directory
-# this will cache them and speed up future builds
+# full image because bun and node-gyp error
 FROM node:22 AS install
 
 RUN npm i -g bun

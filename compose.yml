@@ -27,3 +27,14 @@ services:
       start_interval: 5s
       start_period: 30s
 
+  # store:
+  #   image: store
+  #   environment:
+  #     - DATABASE_TYPE=postgres
+  #     - MEDUSA_ADMIN_ONBOARDING_TYPE=nextjs
+  #     - STORE_CORS=http://localhost:8000,http://localhost:7001
+  #     - MEDUSA_ADMIN_ONBOARDING_NEXTJS_DIRECTORY=storefront
+  #     - LOCALE=fr
+  #     - STRIPE_API_KEY=sk_test_51PlsgFGwyU8iYL2FQhiyZgVgd4lNqJdz7Fy9g8ugv7b6mCUuKlyi8owfukUoj5VXqUyhNp2sbtTXePHjvaD2qOLQ005PZ72EhC
+  #     - DATABASE_URL=postgres://medusa:medusa@database:5432/medusa
+
