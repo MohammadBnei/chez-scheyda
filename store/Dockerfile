@@ -26,6 +26,8 @@ FROM base AS prerelease-admin
 COPY --from=install /temp/prod/node_modules node_modules
 COPY . .
 
+ARG MEDUSA_BACKEND_URL
+
 # [optional] tests & build
 ENV NODE_ENV=production
 RUN bun run build:admin

@@ -10,6 +10,7 @@ on:
 
 env:
   IMAGE_NAME: medusa-shahlaa-admin
+  MEDUSA_BACKEND_URL: http://medusa-shahlaa-server-service.shahlaa:3000
 
 jobs:
   docker:
@@ -55,3 +56,4 @@ jobs:
           cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           cache-to: type=inline
           target: release-admin
+          args: MEDUSA_BACKEND_URL=${{ env.MEDUSA_BACKEND_URL }}
