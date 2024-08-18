@@ -1,4 +1,4 @@
-name: server-ci
+name: admin-ci
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - '!store/kustomize/**'
 
 env:
-  IMAGE_NAME: medusa-shahlaa-server
+  IMAGE_NAME: medusa-shahlaa-admin
 
 jobs:
   docker:
@@ -54,4 +54,4 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}, ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           cache-to: type=inline
-          target: release-server
+          target: release-admin
