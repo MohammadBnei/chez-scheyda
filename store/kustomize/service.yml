@@ -40,6 +40,21 @@ spec:
     name: letsencrypt-prod
 
 ---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: shahlaa-server-certificate
+spec:
+  commonName: shahlaa-server.bnei.dev
+  secretName: shahlaa-server-certificate-secret
+  dnsNames:
+    - "shahlaa-server.bnei.dev"
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+
+---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
@@ -68,3 +83,21 @@ spec:
       #   - name: admin-rewrite-rule
   tls:
     secretName: shahlaa-admin-certificate-secret
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: shahlaa-server-server
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`shahlaa-server.bnei.dev`)
+      services:
+        - kind: Service
+          name: medusa-shahlaa-server-service
+          port: 3000
+  tls:
+    secretName: shahlaa-server-certificate-secret
