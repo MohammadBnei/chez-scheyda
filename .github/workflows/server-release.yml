@@ -7,6 +7,8 @@ on:
     paths:
       - store/**
       - '!store/kustomize/**'
+      - '!store/DockerfileAdmin'
+
 
 env:
   IMAGE_NAME: medusa-shahlaa-server
@@ -54,4 +56,3 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}, ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           cache-to: type=inline
-          target: release-server

@@ -12,25 +12,23 @@ RUN npm i -g bun
 COPY package.json bun.lockb /temp/prod/
 RUN cd /temp/prod && bun install --frozen-lockfile --production
 
-# copy node_modules from temp directory
-# then copy all (non-ignored) project files into the image
-FROM base AS prerelease
+FROM base AS prerelease-admin
 COPY --from=install /temp/prod/node_modules node_modules
 COPY . .
 
+ARG MEDUSA_ADMIN_BACKEND_URL
+
 # [optional] tests & build
 ENV NODE_ENV=production
-RUN bun run build:server
+RUN bun run build:admin
 
-# copy production dependencies and source code into final image
-FROM base AS release
-COPY --from=install /temp/prod/node_modules node_modules
-COPY --from=prerelease /usr/src/app/dist .
-COPY --from=prerelease /usr/src/app/package.json .
 
-COPY medusa-config.js .
+FROM nginx:alpine AS release
 
-ENV NODE_ENV=production
-ENV PORT=3000
+RUN rm -rf /usr/share/nginx/html/*
 
-CMD ["bun", "start"]
+COPY --from=prerelease /usr/src/app/build /usr/share/nginx/html/
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

@@ -7,6 +7,7 @@ on:
     paths:
       - store/**
       - '!store/kustomize/**'
+      - '!store/Dockerfile'
 
 env:
   IMAGE_NAME: medusa-shahlaa-admin
@@ -51,9 +52,9 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: store
+          file: DockerfileAdmin
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}, ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           cache-to: type=inline
-          target: release-admin
           args: MEDUSA_ADMIN_BACKEND_URL=${{ env.MEDUSA_BACKEND_URL }}
