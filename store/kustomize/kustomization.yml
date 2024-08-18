@@ -6,3 +6,8 @@ namespace: shahlaa
 resources:
   - deployment.yml
   - secret.yml
+  
+images:
+  - name: store-server
+    newName: mohammaddocker/medusa-shahlaa-server
+    newTag: 0.0.5
