@@ -12,7 +12,7 @@ const nextConfig = withStoreConfig({
     ignoreBuildErrors: true,
   },
   images: {
-    domains: [process.env.PUBLIC_URL],
+    domains: [process.env.DOMAIN],
     remotePatterns: [
       {
         protocol: "http",
