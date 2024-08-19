@@ -58,4 +58,4 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}, ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           cache-to: type=inline
-          build-args: MEDUSA_BACKEND_URL=${{ env.MEDUSA_BACKEND_URL }}, BASE_URL=${{ env.BASE_URL }}
+          build-args: MEDUSA_BACKEND_URL=${{ env.MEDUSA_BACKEND_URL }}
