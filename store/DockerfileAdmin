@@ -9,7 +9,7 @@ WORKDIR /temp/prod
 
 RUN npm i -g bun
 COPY package.json bun.lockb ./
-RUN bun install --frozen-lockfile --production
+RUN bun install --frozen-lockfile
 
 FROM base AS prerelease
 COPY --from=install /temp/prod/node_modules node_modules
