@@ -1,3 +1,4 @@
+const { hostname } = require("os")
 const { withStoreConfig } = require("./store-config")
 const store = require("./store.config.json")
 
@@ -12,7 +13,6 @@ const nextConfig = withStoreConfig({
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['https://shahlaa-front.bnei.dev', 'localhost'],
     remotePatterns: [
       {
         protocol: "http",
