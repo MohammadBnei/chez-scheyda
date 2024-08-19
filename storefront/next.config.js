@@ -20,6 +20,10 @@ const nextConfig = withStoreConfig({
       },
       {
         protocol: "https",
+        hostname: "shahlaa-front.bnei.dev",
+      },
+      {
+        protocol: "https",
         hostname: "medusa-public-images.s3.eu-west-1.amazonaws.com",
       },
       {
