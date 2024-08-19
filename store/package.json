@@ -1,8 +1,7 @@
 {
-  "name": "medusa-starter-default",
+  "name": "shahlaa-store",
   "version": "0.0.8",
-  "description": "A starter for Medusa projects.",
-  "author": "Medusa (https://medusajs.com)",
+  "description": "The store of shahlaa. Medusa Backend and Admin.",
   "license": "MIT",
   "keywords": [
     "sqlite",
