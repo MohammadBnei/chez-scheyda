@@ -1,4 +1,4 @@
-name: admin-ci
+name: front-ci
 
 on:
   push:
