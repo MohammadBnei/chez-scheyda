@@ -12,7 +12,7 @@ const nextConfig = withStoreConfig({
     ignoreBuildErrors: true,
   },
   images: {
-    domains: [process.env.DOMAIN],
+    domains: ['https://shahlaa-front.bnei.dev', 'localhost'],
     remotePatterns: [
       {
         protocol: "http",
