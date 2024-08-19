@@ -1,4 +1,4 @@
-name: front-ci
+name: admin-ci
 
 on:
   push:
@@ -7,6 +7,8 @@ on:
     paths:
       - storefront/**
       - '!storefront/kustomize/**'
+  workflow_dispatch:
+    
 
 env:
   IMAGE_NAME: medusa-shahlaa-front
