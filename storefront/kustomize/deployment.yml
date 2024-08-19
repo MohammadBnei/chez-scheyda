@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medusa-shahlaa-front
+  annotations: 
+    secrets.infisical.com/auto-reload: "true" 
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: medusa-shahlaa-front
+  template:
+    metadata:
+      labels:
+        app: medusa-shahlaa-front
+    spec:
+      containers:
+        - image: store-front
+          name: medusa-shahlaa-front
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 200m
+              memory: 200Mi
+          envFrom:
+            - secretRef:
+                name: managed-secret-front
