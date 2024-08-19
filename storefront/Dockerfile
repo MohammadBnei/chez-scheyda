@@ -26,6 +26,6 @@ FROM base AS runner
 WORKDIR /app
 COPY --from=installer /temp/prod/node_modules node_modules
 COPY --from=builder /app/.next ./.next
-COPY next.config.js store.config.json store-config.js ./
+COPY package.json next.config.js store.config.json store-config.js ./
 EXPOSE 8000
 CMD ["bun", "run", "start"]
