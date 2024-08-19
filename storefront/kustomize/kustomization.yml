@@ -11,4 +11,4 @@ resources:
 images:
   - name: store-front
     newName: mohammaddocker/medusa-shahlaa-front
-    newTag: 1.0.3
+    newTag: 1.0.4
