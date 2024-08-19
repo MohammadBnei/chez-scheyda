@@ -20,7 +20,7 @@ spec:
           name: medusa-shahlaa-front
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8000
           resources:
             limits:
               cpu: 200m
