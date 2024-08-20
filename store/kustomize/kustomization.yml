@@ -6,7 +6,8 @@ namespace: shahlaa
 resources:
   - deployment-server.yml
   # - deployment-admin.yml
-  - secret.yml
+  - secret-server.yml
+  # - secret-admin.yml
   - service-server.yml
   # - service-admin.yml
   
