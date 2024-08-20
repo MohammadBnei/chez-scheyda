@@ -5,14 +5,15 @@ namespace: shahlaa
 
 resources:
   - deployment-server.yml
-  - deployment-admin.yml
+  # - deployment-admin.yml
   - secret.yml
-  - service.yml
+  - service-server.yml
+  # - service-admin.yml
   
 images:
   - name: store-server
     newName: mohammaddocker/medusa-shahlaa-server
     newTag: 0.0.8
-  - name: store-admin
-    newName: mohammaddocker/medusa-shahlaa-admin
-    newTag: 0.0.8
+  # - name: store-admin
+  #   newName: mohammaddocker/medusa-shahlaa-admin
+  #   newTag: 0.0.8
