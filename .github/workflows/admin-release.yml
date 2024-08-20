@@ -1,13 +1,14 @@
 name: admin-ci
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - store/**
-      - '!store/kustomize/**'
-      - '!store/Dockerfile'
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - store/**
+  #     - '!store/kustomize/**'
+  #     - '!store/Dockerfile'
 
 env:
   IMAGE_NAME: medusa-shahlaa-admin

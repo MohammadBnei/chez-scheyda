@@ -1,13 +1,13 @@
 name: front-ci
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - storefront/**
-      - '!storefront/kustomize/**'
   workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - storefront/**
+  #     - '!storefront/kustomize/**'
     
 
 env:
